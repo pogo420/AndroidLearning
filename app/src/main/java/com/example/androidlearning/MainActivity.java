@@ -8,12 +8,18 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.util.Log;
 import android.view.View;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+    String tag = "SampleDemo:";
+    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        Log.i(tag, "--onCreate--");
+        textView = findViewById(R.id.textView);
     }
 
     @Override
@@ -52,5 +60,45 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.i(tag, "--onStart--");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.i(tag, "--onStop--");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i(tag, "--onDestroy--");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i(tag, "--onResume--");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.i(tag, "--onRestart--");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i(tag, "--onPause--");
+    }
+    public void clickHandler(View view){
+        textView.setText("Hello Android");
+        Toast.makeText(this, "Clicked a button",Toast.LENGTH_LONG).show();
     }
 }
