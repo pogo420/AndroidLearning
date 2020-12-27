@@ -19,25 +19,25 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
 
     String tag = "SampleDemo:";
-    TextView textView;
+//    TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_1_liner);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
         Log.i(tag, "--onCreate--");
-        textView = findViewById(R.id.textView);
+//        textView = findViewById(R.id.textView);
     }
 
     @Override
@@ -97,8 +97,8 @@ public class MainActivity extends AppCompatActivity {
         super.onPause();
         Log.i(tag, "--onPause--");
     }
-    public void clickHandler(View view){
-        textView.setText("Hello Android");
-        Toast.makeText(this, "Clicked a button",Toast.LENGTH_LONG).show();
-    }
+//    public void clickHandler(View view){
+//        textView.setText("Hello Android");
+//        Toast.makeText(this, "Clicked a button",Toast.LENGTH_LONG).show();
+//    }
 }
