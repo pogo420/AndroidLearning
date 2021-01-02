@@ -1,9 +1,11 @@
 package com.example.androidlearning;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -16,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.userinput_test);
-        setContentView(R.layout.userinput_test);
+        setContentView(R.layout.hungry_layout);
         Log.i(tag, "--onCreate--");
     }
 
@@ -50,6 +52,13 @@ public class MainActivity extends AppCompatActivity {
 
         String message = String.format("Total Price INR %d\nThnak you!!", value);
         quantitity.setText(message);
+    }
+
+    public void eatCookie(View view){
+        ImageView image = (ImageView) findViewById(R.id.cookieImage);
+        TextView cookie = (TextView) findViewById(R.id.cookieText);
+        image.setImageResource(R.drawable.after_cookie);
+        cookie.setText("I'm Full");
     }
 
     @Override
