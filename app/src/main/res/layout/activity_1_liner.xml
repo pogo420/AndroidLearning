@@ -4,14 +4,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_margin="2dp"
+    >
 
     <ImageView
         android:src="@drawable/profilepic"
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         />
 
     <TextView
@@ -23,8 +25,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="50sp"
-        android:text="Greetings for everyone..!"
-        android:textStyle="italic"
+        android:text="Party Folks!"
+        android:textStyle="bold"
+        android:paddingLeft="8dp"
         />
 
     <TextView
@@ -33,10 +36,11 @@
         android:textColor="@color/black"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="50sp"
+        android:textSize="25sp"
         android:layout_weight="0"
-        android:text="Ola Everyone..!"
+        android:text="All are invited.."
         android:textStyle="italic"
+        android:paddingLeft="8dp"
         />
 
 </LinearLayout>
