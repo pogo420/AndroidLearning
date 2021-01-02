@@ -1,38 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/quantity_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-light"
-        android:padding="10dp"
-        android:text="Quantity"
-        android:textSize="36sp"
-        android:textStyle="bold" />
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 
-    <TextView
-        android:id="@+id/quantity_value"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-light"
-        android:padding="50dp"
-        android:text="0"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:backgroundTint="@color/cardview_dark_background"
-        android:fontFamily="sans-serif-light"
-        android:text="ORDER"
-        android:textSize="25sp"
-        android:textStyle="bold" />
+        <TextView
+            android:id="@+id/quantity_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:padding="10dp"
+            android:text="Quantity"
+            android:textSize="36sp"
+            android:textStyle="bold" />
 
-</LinearLayout>
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:backgroundTint="@color/cardview_light_background"
+                android:fontFamily="sans-serif-light"
+                android:onClick="decreaseOrder"
+                android:text="-"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/quantity_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:padding="25dp"
+
+                android:text="0"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:backgroundTint="@color/cardview_light_background"
+                android:fontFamily="sans-serif-light"
+                android:onClick="increaseOrder"
+                android:text="+"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/price_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:padding="10dp"
+            android:text="Price"
+            android:textSize="36sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/price_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-light"
+            android:padding="50dp"
+            android:text="Press Order for amount"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="normal" />
+
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:backgroundTint="@color/cardview_dark_background"
+                android:fontFamily="sans-serif-light"
+                android:onClick="submitOrder"
+                android:text="ORDER"
+                android:textSize="25sp"
+
+                android:textStyle="bold" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:backgroundTint="@color/cardview_dark_background"
+                android:fontFamily="sans-serif-light"
+                android:onClick="reset"
+                android:text="RESET"
+                android:textSize="25sp"
+
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
