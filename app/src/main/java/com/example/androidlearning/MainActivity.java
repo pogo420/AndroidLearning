@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,12 +14,13 @@ public class MainActivity extends AppCompatActivity {
     String tag = "SampleDemo:";
     int globalCount = 1;
     int priceAnount = 10;
+    int creamPrice = 10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.userinput_test);
-        setContentView(R.layout.hungry_layout);
+        setContentView(R.layout.userinput_test);
+//        setContentView(R.layout.hungry_layout);
         Log.i(tag, "--onCreate--");
     }
 
@@ -34,23 +36,30 @@ public class MainActivity extends AppCompatActivity {
 //        displayPrice(priceAnount*globalCount);
     }
     public void submitOrder(View view){
-        displayPrice(priceAnount*globalCount);
+        displayPrice(priceAnount*globalCount, false);
     }
 
     public void reset(View view){
         globalCount=0;
         displayQuantity(globalCount);
-        displayPrice(priceAnount*globalCount);
+        displayPrice(priceAnount*globalCount, true);
     }
 
     private void displayQuantity(int value){
         TextView quantitity = (TextView) findViewById(R.id.quantity_value);
         quantitity.setText("" + value);
     }
-    private void displayPrice(int value){
+    private void displayPrice(int value, boolean reset){
         TextView quantitity = (TextView) findViewById(R.id.price_value);
-
-        String message = String.format("Total Price INR %d\nThnak you!!", value);
+        CheckBox wippedCream = (CheckBox) findViewById(R.id.wippedCream);
+        CheckBox choc = (CheckBox) findViewById(R.id.chocolate);
+        String message;
+        if (!reset){
+            message = String.format("Total Price INR %d\nThnak you!!\nWipped cream selected:%b\nChocolate selected:%b", value, wippedCream.isChecked(), choc.isChecked() );
+        }
+        else {
+            message = String.format("Total Price INR %d\nThnak you!!", value);
+        }
         quantitity.setText(message);
     }
 
