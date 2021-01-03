@@ -1,11 +1,13 @@
 package com.example.androidlearning;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,8 +15,9 @@ public class MainActivity extends AppCompatActivity {
 
     String tag = "SampleDemo:";
     int globalCount = 1;
-    int priceAnount = 10;
-    int creamPrice = 10;
+    final int priceAnount = 10;
+    final int creamPrice = 1;
+    final int chocolatePrice = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +42,17 @@ public class MainActivity extends AppCompatActivity {
         displayPrice(priceAnount*globalCount, false);
     }
 
+    private void composeEmail(String subject, String body) {
+        Intent intent = new Intent(Intent.ACTION_SEND);
+        intent.setType("*/*");
+        intent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        intent.putExtra(Intent.EXTRA_TEXT, body);
+        if (intent.resolveActivity(getPackageManager()) != null) {
+            startActivity(intent);
+        }
+    }
+
+
     public void reset(View view){
         globalCount=0;
         displayQuantity(globalCount);
@@ -50,17 +64,55 @@ public class MainActivity extends AppCompatActivity {
         quantitity.setText("" + value);
     }
     private void displayPrice(int value, boolean reset){
+
         TextView quantitity = (TextView) findViewById(R.id.price_value);
         CheckBox wippedCream = (CheckBox) findViewById(R.id.wippedCream);
         CheckBox choc = (CheckBox) findViewById(R.id.chocolate);
+        EditText name = (EditText) findViewById(R.id.name);
+        String nameValue = name.getText().toString();
+
+        String message = priceGenarator(value,nameValue,reset,wippedCream.isChecked(), choc.isChecked());
+        if(reset){
+            wippedCream.setChecked(false);
+            choc.setChecked(false);
+        }
+        else {
+
+            composeEmail("sample", message);
+        }
+//        quantitity.setText(message);
+    }
+
+
+    private String priceGenarator(int value,
+                                  String name,
+                                  boolean reset,
+                                  boolean cream,
+                                  boolean chocolate){
+
         String message;
-        if (!reset){
-            message = String.format("Total Price INR %d\nThnak you!!\nWipped cream selected:%b\nChocolate selected:%b", value, wippedCream.isChecked(), choc.isChecked() );
+        int totalAmount=value;
+
+        if (cream){
+            totalAmount+=creamPrice;
+        }
+        if (chocolate){
+            totalAmount+=chocolatePrice;
+        }
+
+        if (!reset && value>0){
+            message = String.format(
+                           "Hello %s\n" +
+                           "Total Price INR %d\n",
+                    name, totalAmount
+            );
         }
         else {
             message = String.format("Total Price INR %d\nThnak you!!", value);
         }
-        quantitity.setText(message);
+
+        return  message;
+
     }
 
     public void eatCookie(View view){

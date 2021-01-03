@@ -9,6 +9,14 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:inputType="textMultiLine"
+            />
+
         <TextView
             android:id="@+id/check_title"
             android:layout_width="wrap_content"
@@ -108,7 +116,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-light"
-            android:padding="50dp"
+            android:paddingBottom="50dp"
+            android:layout_marginLeft="16dp"
             android:text="Press Order for amount"
             android:textColor="@color/black"
             android:textSize="18sp"
