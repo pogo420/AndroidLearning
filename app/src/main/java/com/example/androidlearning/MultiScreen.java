@@ -1,7 +1,9 @@
 package com.example.androidlearning;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,5 +20,10 @@ public class MultiScreen extends AppCompatActivity {
         setContentView(R.layout.multi_screen_master);
         tag = getString(R.string.log_tag);
         Log.i(tag, getString(R.string.log_on_create));
+    }
+
+    public void handleNumbers(View view){
+        // running self activity as intent
+        startActivity(new Intent(this, NumbersActivity.class));
     }
 }

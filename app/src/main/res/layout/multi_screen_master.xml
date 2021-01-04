@@ -8,7 +8,9 @@
         android:id="@+id/numbers"
         style="@style/CategoryStyle"
         android:background="@color/category_numbers"
-        android:text="@string/category_numbers" />
+        android:text="@string/category_numbers"
+        android:onClick="handleNumbers"
+        />
 
     <TextView
         android:id="@+id/family"
