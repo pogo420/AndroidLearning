@@ -26,4 +26,20 @@ public class MultiScreen extends AppCompatActivity {
         // running self activity as intent
         startActivity(new Intent(this, NumbersActivity.class));
     }
+
+    public void handleFamily(View view){
+        // running self activity as intent
+        startActivity(new Intent(this, FamilyActivity.class));
+    }
+
+    public void handleColours(View view){
+        // running self activity as intent
+        startActivity(new Intent(this, ColoursActivity.class));
+    }
+
+    public void handlePhrases(View view){
+        // running self activity as intent
+        startActivity(new Intent(this, PhrasesActivity.class));
+    }
+
 }
