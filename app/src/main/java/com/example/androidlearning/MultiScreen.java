@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,7 +25,9 @@ public class MultiScreen extends AppCompatActivity {
 
     public void handleNumbers(View view){
         // running self activity as intent
-        startActivity(new Intent(this, NumbersActivity.class));
+//        startActivity(new Intent(this, NumbersActivity.class));
+        Toast.makeText(this,R.string.category_numbers,
+                Toast.LENGTH_SHORT).show();
     }
 
     public void handleFamily(View view){
