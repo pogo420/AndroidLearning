@@ -25,9 +25,9 @@ public class MultiScreen extends AppCompatActivity {
 
     public void handleNumbers(View view){
         // running self activity as intent
-//        startActivity(new Intent(this, NumbersActivity.class));
-        Toast.makeText(this,R.string.category_numbers,
-                Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(this, NumbersActivity.class));
+//        Toast.makeText(this,R.string.category_numbers,
+//                Toast.LENGTH_SHORT).show();
     }
 
     public void handleFamily(View view){
