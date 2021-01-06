@@ -15,8 +15,21 @@ import java.util.List;
 
 public class NumbersActivity extends AppCompatActivity {
 
-    private List<String> getNumbers(){
-        return Arrays.asList("One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten");
+    private ArrayList<Word> getNumbers(){
+
+        // Create a list of words
+        ArrayList<Word> words = new ArrayList<Word>();
+        words.add(new Word("one", "lutti"));
+        words.add(new Word("two", "otiiko"));
+        words.add(new Word("three", "tolookosu"));
+        words.add(new Word("four", "oyyisa"));
+        words.add(new Word("five", "massokka"));
+        words.add(new Word("six", "temmokka"));
+        words.add(new Word("seven", "kenekaku"));
+        words.add(new Word("eight", "kawinta"));
+        words.add(new Word("nine", "wo’e"));
+        words.add(new Word("ten", "na’aacha"));
+        return words;
     }
 
     @Override
@@ -36,7 +49,7 @@ public class NumbersActivity extends AppCompatActivity {
         viewText.setPadding(16, 16, 16, 16);
 
         // Creating adapter which needs text and text view
-        ArrayAdapter<String> numberList = new ArrayAdapter<>(this,R.layout.list_text_layout, getNumbers());
+        WordsAdapter numberList = new WordsAdapter(this, getNumbers());
 
         // Creating list view
         ListView view = findViewById(R.id.number_list);
