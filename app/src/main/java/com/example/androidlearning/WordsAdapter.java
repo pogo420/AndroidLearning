@@ -1,9 +1,12 @@
 package com.example.androidlearning;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
@@ -13,12 +16,30 @@ import java.util.ArrayList;
 public class WordsAdapter extends ArrayAdapter<Word> {
 
     public WordsAdapter(@NonNull Context context, @NonNull ArrayList<Word> words) {
-        super(context, 0, words);
+        super(context, 0, words); // Second value can be anything as we are not going to use it
     }
 
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        return super.getView(position, convertView, parent);
+        // this method is called for each data of array/ list
+        View listItemView = convertView; // view of each item
+        if(listItemView == null) {
+            listItemView = LayoutInflater.from(getContext()).inflate(
+                    R.layout.list_text_layout, parent, false);
+        }
+
+        // getting current value
+        Word currentWord = getItem(position); // each data
+
+        TextView text1 = listItemView.findViewById(R.id.eng);
+        text1.setText(currentWord.getEnglish());
+
+
+        TextView text2 = listItemView.findViewById(R.id.mik);
+        text2.setText(currentWord.getEnglish());
+
+
+        return listItemView;
     }
 }
