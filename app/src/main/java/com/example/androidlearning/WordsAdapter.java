@@ -17,14 +17,16 @@ public class WordsAdapter extends ArrayAdapter<Word> {
 
     public WordsAdapter(@NonNull Context context, @NonNull ArrayList<Word> words) {
         super(context, 0, words); // Second value can be anything as we are not going to use it
+        // we are manually adding data to items so we wont set it.
     }
 
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         // this method is called for each data of array/ list
-        View listItemView = convertView; // view of each item
-        if(listItemView == null) {
+
+        View listItemView = convertView; // view of each item it will be reused.
+        if(listItemView == null) { // if new then set it with view of item
             listItemView = LayoutInflater.from(getContext()).inflate(
                     R.layout.list_text_layout, parent, false);
         }
@@ -37,7 +39,7 @@ public class WordsAdapter extends ArrayAdapter<Word> {
 
 
         TextView text2 = listItemView.findViewById(R.id.mik);
-        text2.setText(currentWord.getEnglish());
+        text2.setText(currentWord.getMeWok());
 
 
         return listItemView;

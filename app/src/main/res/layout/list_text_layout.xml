@@ -3,17 +3,22 @@
     android:id="@+id/list_text_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp"
+    >
 
     <TextView
         android:id="@+id/eng"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
         />
     <TextView
         android:id="@+id/mik"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingLeft="16dp"
     />
 </LinearLayout>
 

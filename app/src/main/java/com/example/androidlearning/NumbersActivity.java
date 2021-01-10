@@ -53,6 +53,8 @@ public class NumbersActivity extends AppCompatActivity {
 
         // Creating list view
         ListView view = findViewById(R.id.number_list);
+
+        // setting the adapter
         view.setAdapter(numberList);
 
     }
