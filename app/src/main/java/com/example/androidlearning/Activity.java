@@ -24,7 +24,10 @@ public class Activity extends AppCompatActivity {
     private AudioManager.OnAudioFocusChangeListener mOnAudioFocusChangeListener = new AudioManager.OnAudioFocusChangeListener() {
         @Override
         public void onAudioFocusChange(int focusChange) {
-            if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT ||
+            if (mMediaPlayer == null){
+                ;
+            }
+            else if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT ||
                     focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK) {
                 // The AUDIOFOCUS_LOSS_TRANSIENT case means that we've lost audio focus for a
                 // short amount of time. The AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK case means that
