@@ -4,9 +4,9 @@ public class QuakeData {
 
     private final String city;
     private final String date;
-    private final float magnitude;
+    private final double magnitude;
 
-    public QuakeData(String city, String date, float magnitude) {
+    public QuakeData(String city, String date, double magnitude) {
         this.city = city;
         this.date = date;
         this.magnitude = magnitude;
@@ -20,7 +20,7 @@ public class QuakeData {
         return date;
     }
 
-    public float getMagnitude() {
+    public double getMagnitude() {
         return magnitude;
     }
 }

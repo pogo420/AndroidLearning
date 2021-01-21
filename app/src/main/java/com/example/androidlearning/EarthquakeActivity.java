@@ -25,13 +25,15 @@ public class EarthquakeActivity extends AppCompatActivity {
 //        earthquakes.add("Rio de Janeiro");
 //        earthquakes.add("Paris");
 
-        ArrayList<QuakeData> earthquakes = new ArrayList<>();
+//        ArrayList<QuakeData> earthquakes = new ArrayList<>();
+//
+//        earthquakes.add(new QuakeData("Kolkata", "25-02-2021", 5.90));
+//        earthquakes.add(new QuakeData("Kolkata", "25-02-2021", 5.90));
+//        earthquakes.add(new QuakeData("Kolkata", "25-02-2021", 5.90));
+//        earthquakes.add(new QuakeData("Kolkata", "25-02-2021", 5.90));
+//        earthquakes.add(new QuakeData("Kolkata", "25-02-2021", 5.90));
 
-        earthquakes.add(new QuakeData("Kolkata", "25-02-2021", (float) 5.90));
-        earthquakes.add(new QuakeData("Kolkata", "25-02-2021", (float) 5.90));
-        earthquakes.add(new QuakeData("Kolkata", "25-02-2021", (float) 5.90));
-        earthquakes.add(new QuakeData("Kolkata", "25-02-2021", (float) 5.90));
-        earthquakes.add(new QuakeData("Kolkata", "25-02-2021", (float) 5.90));
+        ArrayList<QuakeData> earthquakes = QueryUtil.extractEarthquakes();
 
         // Find a reference to the {@link ListView} in the layout
         ListView earthquakeListView = (ListView) findViewById(R.id.list);
@@ -45,6 +47,7 @@ public class EarthquakeActivity extends AppCompatActivity {
         // Set the adapter on the {@link ListView}
         // so the list can be populated in the user interface
         earthquakeListView.setAdapter(adapter);
+
     }
     
 }
